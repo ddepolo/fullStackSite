@@ -1,0 +1,43 @@
+/* CSS custom para el proyecto */
+
+
+.topBar{
+	background-color: #470D21;
+}
+
+
+
+.bottomBar{
+	background-color: #F9E4D4;
+	width: 100%;
+	min-height: 100px;
+	line-height: 100px;
+	margin-top:  70px;
+	
+}
+
+
+.cardCust{
+	background-color: #D67D3E;
+	color: white;
+}
+
+.titulos{
+	padding-top: 50px;
+}
+
+.btn botones{
+	background-color: #D67D3E;
+	color: red;
+}
+.liks{
+	text-decoration: none;
+	color: black;
+}
+.separador{
+	height: 200px;
+}
+
+.hidden{
+	visibility: hidden;
+}

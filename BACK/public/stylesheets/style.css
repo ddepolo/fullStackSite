@@ -1,0 +1,63 @@
+/* CSS custom para el proyecto */
+body{
+	margin: 0 px;
+	padding: 0 px;
+}
+
+.right{
+	float:  right;
+}
+.left{
+	float: left;
+}
+
+.topBar{
+	background-color: #470D21;
+}
+
+.siteSlider{
+	background-color: #040809;
+	width: 100%;
+
+}
+
+.sliderText{
+	font-size: 50px;
+	text-align: right;
+	margin-top: 25%;
+	margin-left:  50px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: bold;
+	color: white;
+}
+
+
+.bottomBar{
+	background-color: #F9E4D4;
+	width: 100%;
+	min-height: 100px;
+	line-height: 100px;
+	margin-top:  70px;
+	
+}
+
+
+.cardCust{
+	background-color: #D67D3E;
+	color: white;
+}
+
+.titulos{
+	padding-top: 50px;
+}
+
+.btn botones{
+	background-color: #D67D3E;
+}
+.liks{
+	text-decoration: none;
+	color: black;
+}
+.separador{
+	height: 200px;
+}
