@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 10-05-2022 a las 12:27:32
+-- Tiempo de generación: 11-05-2022 a las 12:20:47
 -- Versión del servidor: 8.0.27
 -- Versión de PHP: 7.4.26
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `burgers` (
   `precio` decimal(10,2) NOT NULL,
   `imagen` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `burgers`
@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `burgers` (
 
 INSERT INTO `burgers` (`id`, `nombre`, `detalle`, `precio`, `imagen`) VALUES
 (1, 'test 1', 'asdadsadas', '100.00', 'burger1.jpg'),
-(2, 'burger 2', 'test detalle', '1500.00', 'burger2.jpg');
+(2, 'burger 2', 'test detalle', '1500.00', 'burger2.jpg'),
+(3, 'burger 33', 'test3', '1500.00', 'burger1.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
