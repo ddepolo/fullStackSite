@@ -15,7 +15,6 @@ const MuestraBurgers = ({foto, titulo, texto}) => {
             //setLoading(true);
             const response = await axios.get('http://localhost:3000/api/burgers');
             setBurgers(response.data);
-            console.log('testttttt'+response)
             //setLoading(false);
         };
         traeBurgers();
@@ -31,6 +30,8 @@ const MuestraBurgers = ({foto, titulo, texto}) => {
                     </div>
                 </div>
             </div>)
+            
+            
 
 
     );
@@ -46,7 +47,6 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
             //setLoading(true);
             const response = await axios.get('http://localhost:3000/api/burgers');
             setBurgers(response.data);
-            console.log('testttttt'+response)
             //setLoading(false);
         };
         traeBurgers();
@@ -67,6 +67,11 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
 
     );
 }
+
+
+
+
+
 
 export {
     MuestraBurgers,
