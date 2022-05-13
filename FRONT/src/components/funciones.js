@@ -21,6 +21,7 @@ const MuestraBurgers = ({foto, titulo, texto}) => {
     }, []);
     
     return (
+        
             burgers.map(item => <div className="col">
                 <div className="card">
                     <img src={prefijo+item.imagen} className="card-img-top"/>
@@ -30,6 +31,7 @@ const MuestraBurgers = ({foto, titulo, texto}) => {
                     </div>
                 </div>
             </div>)
+            
             
             
 
@@ -53,21 +55,25 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
     }, []);
     
     return (
-        burgers.map(item => <div className="col">
+        
+            burgers.map(item => <div className="col">
                 <div className="card">
                     <img src={prefijo+item.imagen} className="card-img-top"/>
                     <div className="card-body cardCust">
                         <h5 className="card-title text-center h2">{item.nombre}</h5>
                         <p className="card-text">{item.detalle}</p>
                     </div>
-                    <a href="#" class="btn btn-warning right">Pedir</a>
+                    <a href="#" class="btn btn-warning right" onClick={pedirItem(item)}>Pedir</a>
                 </div>
             </div>)
-
+      
 
     );
 }
 
+const pedirItem = (props) => {
+    console.log(props)
+}
 
 
 
@@ -75,5 +81,6 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
 
 export {
     MuestraBurgers,
-    MuestraBurgers2
+    MuestraBurgers2,
+    pedirItem
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import {MuestraBurgers2} from '../components/funciones';
+import Cookies from 'universal-cookie';
 
 const Productos = (props) => {
     return (
