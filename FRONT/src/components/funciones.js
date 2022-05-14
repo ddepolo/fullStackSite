@@ -23,7 +23,7 @@ const MuestraBurgers = ({foto, titulo, texto}) => {
     return (
         
             burgers.map(item => <div className="col">
-                <div className="card">
+                <div className="card" id={item.id}>
                     <img src={prefijo+item.imagen} className="card-img-top"/>
                     <div className="card-body cardCust">
                         <h5 className="card-title text-center h2">{item.nombre}</h5>
@@ -53,17 +53,19 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
         };
         traeBurgers();
     }, []);
-    
+
     return (
         
+        
             burgers.map(item => <div className="col">
-                <div className="card">
+                <div className="card" id={item.id}>
                     <img src={prefijo+item.imagen} className="card-img-top"/>
                     <div className="card-body cardCust">
                         <h5 className="card-title text-center h2">{item.nombre}</h5>
                         <p className="card-text">{item.detalle}</p>
                     </div>
-                    <a href="#" class="btn btn-warning right" onClick={pedirItem(item)}>Pedir</a>
+                    
+                    <a href="#" class="btn btn-warning right" onClick={PedirItem("card")}>Pedir</a>
                 </div>
             </div>)
       
@@ -71,8 +73,9 @@ const MuestraBurgers2 = ({foto, titulo, texto}) => {
     );
 }
 
-const pedirItem = (props) => {
-    console.log(props)
+const PedirItem = (props) => {
+    
+   console.log(props)
 }
 
 
@@ -82,5 +85,5 @@ const pedirItem = (props) => {
 export {
     MuestraBurgers,
     MuestraBurgers2,
-    pedirItem
+    PedirItem
 };

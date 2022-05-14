@@ -1,6 +1,6 @@
 import React from 'react';
 import {MuestraBurgers2} from '../components/funciones';
-import Cookies from 'universal-cookie';
+//import Cookies from 'universal-cookie';
 
 const Productos = (props) => {
     return (
@@ -20,7 +20,6 @@ const Productos = (props) => {
             
             <div class="row row-cols-1 row-cols-md-4 row-cols-xl-5 g-4 m-1">
                 <MuestraBurgers2/>
-                
             </div>
 
         </div>

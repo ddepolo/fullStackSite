@@ -7,7 +7,7 @@ const Contacto = (props) => {
     const initialForm = {
         nombre: '',
         email: '',
-        mensaje: ''
+        texto: ''
     }
 
     const [sending, setSending] = useState(false);
@@ -42,24 +42,22 @@ const Contacto = (props) => {
         <div className="row titulos">
             <div className="col">
                 <h2>Contacto</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris.</p>
+                <p>Envíe un contacto a nuestros especialistas.</p>
             </div>
         </div>
 
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">Nombre</label>
-            <input type="text" className="form-control" id="exampleInputPassword1" value={formData.nombre} onChange={handleChange} />
+            <label className="form-label">Nombre</label>
+            <input type="text" className="form-control"  id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} />
             </div>
             <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">Email</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={formData.email} onChange={handleChange} />
+            <label className="form-label">Email</label>
+            <input type="email" className="form-control" id="email" name="email"  aria-describedby="emailHelp" value={formData.email} onChange={handleChange} />
             </div>
             <div className="mb-3">
-            <label for="Mensaje" className="form-label">Mensaje</label>
-            <textarea className="form-control" id="Mensaje" onChange={handleChange}>{formData.mensaje}</textarea>
+            <label className="form-label">Mensaje</label>
+            <textarea className="form-control" id="texto" name="texto" onChange={handleChange} >{formData.texto}</textarea>
             </div>
 
             {sending ? <p>Enviando...</p> : null}

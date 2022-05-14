@@ -1,0 +1,49 @@
+<p class="right margin20"><a href="/salir">Salir</a></p>
+<h2 class="margin20" >Bienvenido/a {{usuario}}</h2>
+
+
+<div class="container-fluid">
+  <div class="row titulos">
+     <div class="col">
+        <h2>Productos</h2>
+        <p>Listado y modificación</b></p>
+     </div>
+  </div>
+
+  <p>
+    <form action="{{postUrl}}" method="POST" enctype="multipart/form-data">
+      Agregar: <br>
+      <input type="hidden" name="id" value="{{burger.id}}">
+      <input type="text" name="nombre" placeholder="Nombre" value="{{burger.nombre}}">
+      <input type="text" name="detalle" placeholder="Detalle" value="{{burger.detalle}}">
+      <input type="text" name="precio" placeholder="Precio" value="{{burger.precio}}">
+      <input type="file" name="imagen" id="imagen"/>
+      <button type="submit" class="btn btn-warning">Confirmar</button>
+    </form>
+  </p>
+
+  <table class="table">
+    <tr>
+      <td colspan="2"></td>
+      <td>ID</td>
+      <td>Nombre</td>
+      <td>Detalle</td>
+      <td>Precio</td>
+      <td>Imagen</td>
+    </tr>
+    {{#each resu}}
+      <tr>
+        <td><a href="/page2/editar/{{item.id}}"><img src="/images/pencil-fill.svg"></a></td>
+        <td><a href="/page2/borrar/{{item.id}}"><img src="/images/x-circle-fill.svg"> </a></td>
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.detalle}}</td>
+        <td>{{item.precio}}</td>
+        <td>{{{imagen}}}</td>
+      </tr>
+    {{/each}}
+
+</table>
+
+</div>
+

@@ -7,11 +7,12 @@ var fileUpload = require('express-fileupload');
 var cors = require('cors');
 
 require('dotenv').config();
+const session = require('express-session');
 
 
-var homeRouter = require('./routes/home');
+var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
-
+var page2Router = require('./routes/page2');
 
 const async = require('hbs/lib/async');
 
@@ -27,14 +28,30 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var logueado;
+app.use(session({
+  secret: '4asd5sa4d5a', 
+  resave: false, 
+  saveUninitialized: true
+}));
 
+seguridad = async (req, res, next) => {
+  if(req.session.user_id>0){
+    next();
+  }else{
+    res.redirect('/');
+  }
+  
+}
 
-app.use('/', homeRouter);
+app.use('/', indexRouter);
+app.use('/',seguridad, page2Router);
 app.use('/api', cors(), apiRouter);
+
 
 app.use(fileUpload({
   useTempFiles: true,
-  tempFileDir: '/imp'
+  tempFileDir: '/tmp/'
 }));
 
 

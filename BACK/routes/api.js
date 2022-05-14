@@ -13,10 +13,11 @@ router.get('/burgers', async function(req, res, next) {
 });
 
 router.post('/contacto', async function(req, res, next) {
+  console.log(req.body.texto)
   const mail = {
     to: 'diego.de@gmail.com',
-    subject: 'Contacto via WEB',
-    html: 'contacto bla bla'
+    subject: `Contacto via WEB de ${req.body.nombre}`,
+    html: `Esta recibiendo este correo porque se realizo un contacto por web, datos: <br> Nombre: ${req.body.nombre} <br> Mail: ${req.body.email} <br> Mensaje: ${req.body.texto}`
   }
 
   const  transport = nodemailer.createTransport({
@@ -34,7 +35,7 @@ router.post('/contacto', async function(req, res, next) {
 
   res.status(201).json({
     error: false,
-    message: 'Envio ok'
+    mensaje: 'Envío ok'
   });
 
 });
