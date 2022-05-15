@@ -24,6 +24,8 @@ function App() {
         <Route path="/productos" exact component={Productos} />
         <Route path="/contacto" exact component={Contacto} />
         <Route path="/pedidos" exact component={Pedidos} />
+        
+        
       </Switch>
       <Footer/>
     </Router>

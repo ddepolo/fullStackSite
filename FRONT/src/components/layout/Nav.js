@@ -27,7 +27,9 @@ const Nav = (props) => {
                     </li>
 
                     <li className="nav-item right">
-                        <Link to="/admin" className="nav-link">Admin</Link>
+                        
+                        <a target="_blank" className="nav-link" href="http://localhost:3000">AdminPanel</a>
+  
                     </li>
                 </ul>
                 </div>

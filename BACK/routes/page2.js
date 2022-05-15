@@ -18,7 +18,7 @@ cloudinary.config({
 
 const uploader = util.promisify(cloudinary.uploader.upload);
 
-router.get('/page2', async function(req, res, next) {
+router.get('/', async function(req, res, next) {
   var data = await burgers.getBurgers();
 
   data = data.map(item => {
@@ -57,7 +57,7 @@ router.get('/salir', function(req, res, next) {
 });
 
 
-router.post('/page2/add', upload.single('imagen'), async (req, res, next) => {
+router.post('/add', upload.single('imagen'), async (req, res, next) => {
 
   delete req.body.imagen;
 
@@ -83,14 +83,14 @@ router.post('/page2/add', upload.single('imagen'), async (req, res, next) => {
   
 })
 
-router.get('/page2/borrar/:id', async (req, res, next) => {
+router.get('/borrar/:id', async (req, res, next) => {
   var id = req.params.id;
   await burgers.delBurgers(id);
   res.redirect('/page2/');
   
 })
 
-router.get('/page2/editar/:id', async (req, res, next) => {
+router.get('/editar/:id', async (req, res, next) => {
   var id = req.params.id;
   var burger = await burgers.editBurgersGetInfo(id);
   var data = await burgers.getBurgers();
@@ -130,7 +130,7 @@ router.get('/page2/editar/:id', async (req, res, next) => {
 
 
 
-router.post('/page2/editar', upload.single('imagen'),  async (req, res, next) => {
+router.post('/editar', upload.single('imagen'),  async (req, res, next) => {
 
   
   delete req.body.imagen;
@@ -139,13 +139,21 @@ router.post('/page2/editar', upload.single('imagen'),  async (req, res, next) =>
     var img_id = '';
     if(req.file && Object.keys(req.file).length > 0){
       img_id = ( await cloudinary.v2.uploader.upload('tmp/'+req.file.filename)).public_id
+
+      obj = {
+        nombre: req.body.nombre,
+        detalle: req.body.detalle,
+        precio: req.body.precio,
+        img_id: img_id
+      }
+    }else{
+      obj = {
+        nombre: req.body.nombre,
+        detalle: req.body.detalle,
+        precio: req.body.precio
+      }
     }
-    obj = {
-      nombre: req.body.nombre,
-      detalle: req.body.detalle,
-      precio: req.body.precio,
-      img_id: img_id
-    }
+    
 
     await burgers.editBurgers(obj, req.body.id);
     res.redirect('/page2/');

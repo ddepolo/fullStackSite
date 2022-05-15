@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+
 //import {EnviaMails} from '../components/funciones';
 
 const Contacto = (props) => {
@@ -17,7 +18,7 @@ const Contacto = (props) => {
     const handleChange = e => {
         const {name, value} = e.target;
         setFormData(oldData => ({
-            oldData,
+            ...oldData,
             [name]: value
         }));
     }
@@ -27,6 +28,7 @@ const Contacto = (props) => {
         e.preventDefault();
         setMsg('');
         setSending(true)
+        //console.log(formData)
         const response = await axios.post('http://localhost:3000/api/contacto', formData);
         setSending(false);
         setMsg(response.data.mensaje);

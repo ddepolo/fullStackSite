@@ -6,6 +6,8 @@ var logger = require('morgan');
 var fileUpload = require('express-fileupload');
 var cors = require('cors');
 
+
+
 require('dotenv').config();
 const session = require('express-session');
 
@@ -18,6 +20,12 @@ const async = require('hbs/lib/async');
 
 var app = express();
 
+
+/*const corsOptions = {
+	origin: 'http://localhost:3001',
+	optionsSuccessStatus: 200
+};*/
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -28,12 +36,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var logueado;
+
 app.use(session({
   secret: '4asd5sa4d5a', 
   resave: false, 
   saveUninitialized: true
 }));
+
+
+
+
+
+
 
 seguridad = async (req, res, next) => {
   if(req.session.user_id>0){
@@ -45,7 +59,7 @@ seguridad = async (req, res, next) => {
 }
 
 app.use('/', indexRouter);
-app.use('/',seguridad, page2Router);
+app.use('/page2',seguridad, page2Router);
 app.use('/api', cors(), apiRouter);
 
 
